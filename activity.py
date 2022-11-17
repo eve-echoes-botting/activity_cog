@@ -15,14 +15,6 @@ class activity_cog(commands.Cog):
         self.bot = bot
         self.pd = pd('activity.json')
 
-    @commands.Cog.listener()
-    async def on_message(self, message):
-        if message.author.bot == False:
-            return
-            g = str(message.guild)
-            self._ensure(g, 'last message')
-            seld.pd[g]['last message'][str(message.author.id)] = datetime.now()
-
     @commands.command()
     async def activity(self, ctx, *args):
         if len(args) == 0:
