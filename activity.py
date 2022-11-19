@@ -81,7 +81,7 @@ class activity_cog(commands.Cog):
                             else:
                                 d[key] = m.created_at
             else:
-                await self.edit_msg(msg, f'\nchannel {i+1}/{n}: {cl[i].name}: not a text channel')
+                await self.edit_msg(msg, f'\nchannel {i+1}/{cn}: {cl[i].name}: not a text channel')
         for i in d:
             d[i] = d[i].strftime(mf)
         await self.edit_msg(msg, f'\ndone')
