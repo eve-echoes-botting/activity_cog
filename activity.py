@@ -101,7 +101,7 @@ class activity_cog(commands.Cog):
         d = self.pd[guid]['last messages']
         sd = {k: {'last': v, 'diff': (dt.now() - dt.strptime(v, mf)).seconds} for k, v in d.items()}
         nsd = sorted(sd.items(), key = lambda x: x[1]['diff'])
-        ar = [f'{ctx.guild.get_member(int(k)).name}: {v["last"]}, {v["diff"]//60//24} days' for k, v in nsd]
+        ar = [f'{ctx.guild.get_member(int(k)).name}: {v["last"]}, {(dt.now() - dt.strptime(v["last"], mf)).days} days' for k, v in nsd]
         msg = ''
         for i in ar:
             if len(msg) + len(i) < 1900:
